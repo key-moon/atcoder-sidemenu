@@ -1,11 +1,10 @@
 ﻿/**
- * サイドメニューに追加される要素のクラスです。
- * @property {RegExp} [match]
+ * サイドメニューに追加される要素のクラス
  */
 export class SideMenuElement {
 
     /**
-     * オブジェクト生成用のコンストラクタです
+     * オブジェクト生成用のコンストラクタ
      * @param {string} [id] 要素のコンテナに付加されるIDです。
      * @param {string} [title] 要素に表示されるタイトルです。
      * @param {RegExp} [match] 表示されるページを指定するための正規表現です。
@@ -20,10 +19,17 @@ export class SideMenuElement {
         this.afterAppend = afterAppend;
     }
 
+    /**
+     * URLのページで要素を表示するべきか
+     * @param {string} [url] ページのURL 
+     */
     shouldDisplayed(url) {
 		return this.match.test(url);
     }
 
+    /**
+     * 要素のHTMLを取得
+     */
     GetHTML() {
         return `<div class="menu-wrapper">
     <div class="menu-header">

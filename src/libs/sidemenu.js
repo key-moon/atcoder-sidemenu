@@ -3,11 +3,17 @@ import * as $ from 'jquery';
 import sidemenuHtml from './sidemenu.html';
 import { SideMenuElement } from './element';
 
+/**
+ * サイドメニューのクラス
+ */
 export class SideMenu {
     constructor() {
         this.Generate();
     }
 
+    /**
+     * サイドメニューを生成する
+     */
     Generate() {
         $('#main-div').append(sidemenuHtml);
         resizeSidemenuHeight();
@@ -27,7 +33,7 @@ export class SideMenu {
     }
 
     /**
-     * サイドメニューに要素を追加します
+     * サイドメニューに要素を追加する
      * @param {SideMenuElement} [element] 追加する要素
      */
     addElement(element) {
