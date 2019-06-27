@@ -729,25 +729,24 @@ module.exports = function (css) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: ./libs/sidemenu.scss
+// EXTERNAL MODULE: ./src/libs/sidemenu.scss
 var sidemenu = __webpack_require__(2);
 
 // EXTERNAL MODULE: external "jQuery"
 var external_jQuery_ = __webpack_require__(0);
 
-// EXTERNAL MODULE: ./libs/sidemenu.html
+// EXTERNAL MODULE: ./src/libs/sidemenu.html
 var libs_sidemenu = __webpack_require__(1);
 var libs_sidemenu_default = /*#__PURE__*/__webpack_require__.n(libs_sidemenu);
 
-// CONCATENATED MODULE: ./libs/element.js
+// CONCATENATED MODULE: ./src/libs/element.js
 ﻿/**
- * サイドメニューに追加される要素のクラスです。
- * @property {RegExp} [match]
+ * サイドメニューに追加される要素のクラス
  */
 class SideMenuElement {
 
     /**
-     * オブジェクト生成用のコンストラクタです
+     * オブジェクト生成用のコンストラクタ
      * @param {string} [id] 要素のコンテナに付加されるIDです。
      * @param {string} [title] 要素に表示されるタイトルです。
      * @param {RegExp} [match] 表示されるページを指定するための正規表現です。
@@ -762,10 +761,17 @@ class SideMenuElement {
         this.afterAppend = afterAppend;
     }
 
+    /**
+     * URLのページで要素を表示するべきか
+     * @param {string} [url] ページのURL 
+     */
     shouldDisplayed(url) {
 		return this.match.test(url);
     }
 
+    /**
+     * 要素のHTMLを取得
+     */
     GetHTML() {
         return `<div class="menu-wrapper">
     <div class="menu-header">
@@ -776,17 +782,23 @@ class SideMenuElement {
     }
 }
 
-// CONCATENATED MODULE: ./libs/sidemenu.js
+// CONCATENATED MODULE: ./src/libs/sidemenu.js
 
 
 
 
 
+/**
+ * サイドメニューのクラス
+ */
 class sidemenu_SideMenu {
     constructor() {
         this.Generate();
     }
 
+    /**
+     * サイドメニューを生成する
+     */
     Generate() {
         external_jQuery_('#main-div').append(libs_sidemenu_default.a);
         resizeSidemenuHeight();
@@ -806,7 +818,7 @@ class sidemenu_SideMenu {
     }
 
     /**
-     * サイドメニューに要素を追加します
+     * サイドメニューに要素を追加する
      * @param {SideMenuElement} [element] 追加する要素
      */
     addElement(element) {
@@ -821,11 +833,16 @@ class sidemenu_SideMenu {
     }
 }
 
-// CONCATENATED MODULE: ./main.js
-/* concated harmony reexport SideMenu */__webpack_require__.d(__webpack_exports__, "SideMenu", function() { return sidemenu_SideMenu; });
+// CONCATENATED MODULE: ./src/main.js
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sidemenu", function() { return main_sidemenu; });
 /* concated harmony reexport SideMenuElement */__webpack_require__.d(__webpack_exports__, "SideMenuElement", function() { return SideMenuElement; });
 
 
+
+/**
+ * サイドメニューのシングルトン
+ */
+const main_sidemenu = new sidemenu_SideMenu();
 
 
 
