@@ -1,6 +1,6 @@
 {
   "name": "atcoder-sidemenu",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "AtCoderページの横に要素を乗せられるSidemenuを追加します。",
   "main": "src/main.js",
   "dependencies": {
